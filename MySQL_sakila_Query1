@@ -1,0 +1,30 @@
+-- EXERCISE 1 --
+
+USE sakila;
+SELECT * FROM actor;
+SELECT * FROM actor WHERE last_name = "Cage";
+SELECT * FROM actor WHERE first_name != "Zero" AND first_name != "Nick"; 
+SELECT * FROM actor WHERE first_name IN ("Nick","Johnny", "James", "Morgan", "Whoopi");
+SELECT * FROM actor WHERE actor_id BETWEEN 50 AND 150;
+SELECT * FROM actor WHERE first_name LIKE "C%";
+SELECT * FROM actor ORDER BY first_name;
+SELECT * FROM actor ORDER BY last_name DESC;
+SELECT COUNT(*) FROM actor;
+SELECT COUNT(DISTINCT first_name) FROM actor;
+SELECT * FROM category WHERE name IN ("Horror");
+
+-- EXERCISE 2 -- 
+INSERT INTO actor (first_name, last_name) VALUES ("Jaan", "Magius");
+INSERT INTO film_actor (actor_id, film_id) VALUES (201, 1);
+INSERT INTO film_actor (actor_id, film_id) VALUES (201, 2);
+INSERT INTO film_actor (actor_id, film_id) VALUES (201, 3);
+INSERT INTO film_actor (actor_id, film_id) VALUES (201, 4);
+INSERT INTO film_actor (actor_id, film_id) VALUES (201, 5);
+UPDATE actor SET first_name = "JUAN" WHERE actor_id = 201;
+UPDATE actor SET last_name = "CARLOS" WHERE actor_id = 201;
+
+-- EXERCISE 3 --
+
+SELECT * FROM category;
+SELECT * FROM film JOIN film_category ON film.film_id = film_category.film_id;
+SELECT * FROM category JOIN film_category ON category.category_id = film_category.category_id WHERE film_category.category_id = 11;
